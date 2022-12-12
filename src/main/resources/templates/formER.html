@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Form</title>
+    <link th:href="@{/form-stylesheet.css}" rel="stylesheet">
+  </head>    
+  <body>
+  <div class="topnav">
+    <a th:href="@{/mkv/web/course/form}" style="background-color : green">Form</a>
+    <a th:href="@{/mkv/web/course/courses}">Course Table</a>
+    <a th:href="@{/mkv/web/student/students}">Student Table</a>
+    <a th:href="@{/mkv/web/examresult/examResults}">Exam Result Table</a>
+  </div>
+    <div class="container">
+      <h2> Exam Result Portal </h2>
+      <div class="topnav">
+        <a th:href="@{/mkv/web/course/form}">Courses</a>
+        <a th:href="@{/mkv/web/student/form}" >Students</a>
+        <a th:href="@{/mkv/web/examresult/form}" style="background-color : green">Exam Results</a>
+      </div>
+      <form method="post" th:object="${examResult}" th:action="@{/mkv/web/examresult/handleSubmit}">
+        <input type="text" placeholder="Student Id" th:field="*{studentId}">
+        <input type="text" placeholder="Course Id" th:field="*{courseId}">
+        <input type="text" placeholder="Score" th:field="*{score}">
+        <input type="hidden" th:field="*{id}">
+        <br><br>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+</body>
+</html>

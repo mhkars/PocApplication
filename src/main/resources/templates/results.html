@@ -1,0 +1,37 @@
+<!DOCTYPE>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Grades</title>
+    <link th:href="@{/grades-stylesheet.css}" rel="stylesheet">
+</head>
+<body>
+
+<div class="topnav">
+    <a th:href="@{/mkv/web/course/form}">Form</a>
+    <a th:href="@{/mkv/web/course/courses}">Course Table</a>
+    <a th:href="@{/mkv/web/student/students}">Student List</a>
+    <a th:href="@{/mkv/web/examresult/examResults}" style="background-color : green">Exam Result List</a>
+</div>
+
+<div class= "container">
+    <h2 > Exam Results </h2>
+    <table id="table">
+        <tr>
+            <th>Exam Result Id</th>
+            <th>Student Id</th>
+            <th>Course Id</th>
+            <th>Score</th>
+
+        </tr>
+        <tr th:each="examResult: ${examResults}">
+            <td th:text="${examResult.id}"></td>
+            <td th:text="${examResult.studentId}"></td>
+            <td th:text="${examResult.courseId}"></td>
+            <td th:text="${examResult.score}"></td>
+            <td> <a role="button" class="update" th:href="@{/(id = ${examResult.id})}">Update</a> </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
